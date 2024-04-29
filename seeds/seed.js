@@ -23,3 +23,12 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+
+/*
+"id": ,
+"name": ,
+"country_code": ,
+"region": ,
+"population": ,
+"languages":
+*/
