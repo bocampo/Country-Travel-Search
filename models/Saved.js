@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Saved extends Model {}
 
-Project.init(
+Saved.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,25 +15,31 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    country_code: {
       type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
+    capital: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    region: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    population: {
       type: DataTypes.FLOAT,
-      allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
+      languages: {
+        type: DataTypes.STRING,
       },
-    },
+      user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model:'user',
+          key: 'id'
+        }
+      }
   },
   {
     sequelize,
@@ -44,4 +50,4 @@ Project.init(
   }
 );
 
-module.exports = Project;
+module.exports = Saved;
