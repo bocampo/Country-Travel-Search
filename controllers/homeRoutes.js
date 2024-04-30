@@ -18,9 +18,9 @@ router.get('/', async (req, res) => {
     const countries = projectData.map((countries) => countries.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      countries, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      countries,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -79,6 +79,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+/*
 //Remote API call example
 router.get('/list', (req, res) => {
   fetch('https://restcountries.com/v3.1/name/us')
@@ -93,5 +94,6 @@ router.get('/list', (req, res) => {
     res.send(jokes.value);
   })
 });
+*/
 
 module.exports = router;
