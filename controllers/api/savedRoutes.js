@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Saved } = require('../../models');
+const { SavedCountry } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newSaved = await Saved.create({
+    const newSaved = await SavedCountry.create({
       ...req.body,
       user_id: req.session.user_id,
     });
@@ -17,7 +17,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const savedData = await Saved.destroy({
+    const savedData = await SavedCountry.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,

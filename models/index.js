@@ -1,5 +1,5 @@
 const User = require('./User');
-const Saved = require('./SavedCountry');
+const SavedCountry = require('./SavedCountry');
 
 User.hasMany(Saved, {
   foreignKey: 'user_id',
@@ -10,4 +10,4 @@ Saved.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, Saved };
+module.exports = { User, SavedCountry };

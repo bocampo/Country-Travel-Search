@@ -21,12 +21,10 @@ Visa.init(
             allowNull: false,
         },
     },
-    /*
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'project',
-    }*/
+        modelName: 'visa',
+    }
 )
