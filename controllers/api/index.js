@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
-const savedRoutes = require('./projectRoutes');
+const savedRoutes = require('./savedRoutes');
 
 router.use('/users', userRoutes);
 router.use('/saved', savedRoutes);

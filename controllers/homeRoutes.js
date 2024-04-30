@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Saved.findAll({
+    const savedData = await Saved.findAll({
       include: [
         {
           model: User,
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const countries = projectData.map((countries) => countries.get({ plain: true }));
+    const countries = savedData.map((countries) => countries.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
@@ -27,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/saved/:id', async (req, res) => {
+router.get('/saved', async (req, res) => {
   try {
-    const projectData = await Saved.findByPk(req.params.id, {
+    const savedData = await Saved.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -38,7 +38,7 @@ router.get('/saved/:id', async (req, res) => {
       ],
     });
 
-    const countries = projectData.get({ plain: true });
+    const countries = savedData.get({ plain: true });
 
     res.render('countries', {
       ...countries,
@@ -82,16 +82,16 @@ router.get('/login', (req, res) => {
 /*
 //Remote API call example
 router.get('/list', (req, res) => {
-  fetch('https://restcountries.com/v3.1/name/us')
+  fetch(`https://restcountries.com/v3.1/name/${nameInput}`)
   .then(function(response){
     return response.json();
-  }).then(function(jokes){
+  }).then(function(data){
 
     //Do whatever you want with the data. Save it to the database etc
     //in this case I'm just sending it back to the user
     //but all things are triggered by the routes
-    console.log(jokes);
-    res.send(jokes.value);
+    console.log(data);
+    res.send(data[0].name.common);
   })
 });
 */
