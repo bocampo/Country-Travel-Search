@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Saved, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
@@ -32,7 +33,7 @@ router.get('/saved', async (req, res) => {
     const savedData = await Saved.findByPk(req.params.id, {
       include: [
         {
-          model: User,
+          model: Saved,
           attributes: ['name'],
         },
       ],
@@ -70,13 +71,14 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  res.render('login');
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
   }
 
-  res.render('login');
+  
 });
 
 /*
