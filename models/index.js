@@ -1,12 +1,12 @@
 const User = require('./User');
 const SavedCountry = require('./SavedCountry');
 
-User.hasMany(Saved, {
+User.hasMany(SavedCountry, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-Saved.belongsTo(User, {
+SavedCountry.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
