@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Saved, User } = require('../models');
+const { SavedCountry, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const savedData = await Saved.findAll({
+    const savedData = await SavedCountry.findAll({
       include: [
         {
           model: User,
@@ -30,10 +30,10 @@ router.get('/', async (req, res) => {
 
 router.get('/saved', async (req, res) => {
   try {
-    const savedData = await Saved.findByPk(req.params.id, {
+    const savedData = await SavedCountry.findByPk(req.params.id, {
       include: [
         {
-          model: Saved,
+          model: SavedCountry,
           attributes: ['name'],
         },
       ],
@@ -56,7 +56,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Saved }],
+      include: [{ model: SavedCountry }],
     });
 
     const user = userData.get({ plain: true });
@@ -78,24 +78,6 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  
 });
-
-/*
-//Remote API call example
-router.get('/list', (req, res) => {
-  fetch(`https://restcountries.com/v3.1/name/${nameInput}`)
-  .then(function(response){
-    return response.json();
-  }).then(function(data){
-
-    //Do whatever you want with the data. Save it to the database etc
-    //in this case I'm just sending it back to the user
-    //but all things are triggered by the routes
-    console.log(data);
-    res.send(data[0].name.common);
-  })
-});
-*/
 
 module.exports = router;
