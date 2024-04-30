@@ -1,5 +1,5 @@
 const User = require('./User');
-const Saved = require('./Saved');
+const Saved = require('./SavedCountry');
 
 User.hasMany(Saved, {
   foreignKey: 'user_id',

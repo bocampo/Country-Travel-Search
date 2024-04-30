@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "country_name": "China",
+    "visa_requirement": "Visa Required"
+  },
+  {
+    "id": 2,
+    "country_name": "Thailand",
+    "visa_requirement": "Visa Required"
+  },
+  {
+    "id": 3,
+    "country_name": "Italy",
+    "visa_requirement": "Not required for less than 90 days"
+  },
+  {
+    "id": 4,
+    "country_name": "France",
+    "visa_requirement": "Not required for less than 90 days"
+  },
+  {
+    "id": 5,
+    "country_name": "Spain",
+    "visa_requirement": "Not required for less than 90 days"
+  },
+  {
+    "id": 6,
+    "country_name": "Germany",
+    "visa_requirement": "Not required for less than 90 days"
+  },
+  {
+    "id": 7,
+    "country_name": "Turkey",
+    "visa_requirement": "NR for less than 90 days"
+  },
+  {
+    "id": 8,
+    "country_name": "Mexico",
+    "visa_requirement": "NR for less than 180 days"
+  },
+  {
+    "id": 9,
+    "country_name": "United Kingdom",
+    "visa_requirement": "NR for less than 180 days"
+  },
+  {
+    "id": 1,
+    "country_name": "Greece",
+    "visa_requirement": "NR for less than 90 days"
+  }
+]
