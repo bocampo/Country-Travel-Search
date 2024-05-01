@@ -6,7 +6,7 @@ class SavedCountry extends Model { }
 SavedCountry.init(
   {
     id: {
-      type: DataTypes.SERIAL,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
