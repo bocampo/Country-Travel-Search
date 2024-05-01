@@ -1,0 +1,35 @@
+{{#each SavedCountry as |SavedCountry| }}
+<div class="row mb-4 SavedCountry">
+  <div class="col-md-5">
+    <h2>
+      <a href="/saved/{{SavedCountry.id}}">{{SavedCountry.name}}</a>
+  </div>
+</div>
+{{/each}}
+
+
+
+<!--
+<div>
+  <p>Saved Countries</p>
+  <div id="1"><button class="delete" Delete></button></div>
+  <div id="2"><button class="delete">Delete</button></div>
+  <div id="3"><button class="delete">Delete</button></div>
+  <div id="4"><button class="delete">Delete</button></div>
+  <div id="5"><button class="delete">Delete</button></div>
+
+
+</div>
+
+
+<div>
+  <p>Saved Countries</p>
+  {{#each countries}}
+  <div id="{{@index}}">
+    <button class="delete">Delete</button>
+    <span>{{this}}</span>
+  </div>
+  {{/each}}
+</div>
+
+-->
