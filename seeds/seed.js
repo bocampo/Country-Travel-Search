@@ -13,12 +13,19 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+
   for (const saved of savedData) {
     await SavedCountry.create({
       ...saved,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+
+  const visas = await Visa.bulkCreate(visaData, {
+
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };
