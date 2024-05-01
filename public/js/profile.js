@@ -71,7 +71,8 @@ search.addEventListener('click', function(){
     currDiv.innerHTML = `Currency used: ${currenciesKeys[0]}`;
     const languages = data[0].languages;
     const languageKeys = Object.keys(languages);
-    console.log(languages);
+    console.log(languageKeys);
+    console.log(`Main Language: ${languages[languageKeys[0]]}`);
     const langDiv = document.getElementById('languages');
     langDiv.innerHTML = `First language spoken: ${languageKeys[0]}`;
     const timezone = data[0].timezones[0];
@@ -85,7 +86,8 @@ search.addEventListener('click', function(){
     mapDiv.innerHTML = `Google Maps: ${mapKeys[0]}`;
 
     save.addEventListener('click', function() {
-      fetch(`/saved`, {
+      console.log("You clicked me!");
+      fetch(`/api/saved`, {
               method: 'POST',
               body: JSON.stringify({ name }),
               headers: {

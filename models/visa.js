@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Visa extends Model { }
+class Visa extends Model {}
 
 Visa.init(
     {
@@ -19,7 +18,7 @@ Visa.init(
         visa_requirement: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
+        }
     },
     {
         sequelize,
@@ -27,4 +26,6 @@ Visa.init(
         underscored: true,
         modelName: 'Visa',
     }
-)
+);
+
+module.exports = Visa;

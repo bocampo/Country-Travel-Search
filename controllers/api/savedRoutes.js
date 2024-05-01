@@ -2,12 +2,15 @@ const router = require('express').Router();
 const { SavedCountry } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
+  console.log(req.body);
   try {
     const newSaved = await SavedCountry.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: 1,
     });
+
+    console.log(newSaved);
 
     res.status(200).json(newSaved);
   } catch (err) {
