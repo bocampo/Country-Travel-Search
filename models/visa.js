@@ -7,7 +7,7 @@ class Visa extends Model { }
 Visa.init(
     {
         id: {
-            type: DataTypes.SERIAL,
+            type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
             primaryKey: true,
@@ -25,6 +25,8 @@ Visa.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'visa',
+        modelName: 'Visa',
     }
 )
+
+module.exports = Visa;
