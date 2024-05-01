@@ -28,5 +28,3 @@ Visa.init(
         modelName: 'Visa',
     }
 )
-
-module.exports = Visa;
