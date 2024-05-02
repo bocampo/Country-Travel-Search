@@ -19,6 +19,7 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
+        <a href="/saved">Saved Countries</a> |
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}

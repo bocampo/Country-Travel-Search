@@ -43,6 +43,8 @@ const delButtonHandler = async (event) => {
 };
 
 search.addEventListener('click', function(){
+  const saved = document.getElementById('saved');
+  saved.innerHTML = ''
   fetch(`https://restcountries.com/v3.1/name/${searchInput.value}`)
   .then(response => {
     if (!response.ok) {
@@ -120,6 +122,9 @@ search.addEventListener('click', function(){
                 'Content-Type': 'application/json',
               },
     })
+
+   
+    saved.innerHTML = `Saved! Feel free to search for another country or visit your homepage`
   
   })
   .catch(error => {
