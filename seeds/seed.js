@@ -3,7 +3,7 @@ const { User, SavedCountry, Visa } = require('../models');
 
 const userData = require('./userData.json');
 const savedData = require('./savedData.json');
-const visaData = require('./visaData.json');
+
 
 
 const seedDatabase = async () => {

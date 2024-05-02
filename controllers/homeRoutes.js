@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { SavedCountry, User } = require('../models');
+const { count } = require('../models/User');
 const withAuth = require('../utils/auth');
-require('../public/js/saved.js')
+
 
 
 router.get('/', async (req, res) => {
@@ -29,30 +30,41 @@ router.get('/', async (req, res) => {
   }
 });
 
+
 router.get('/saved', async (req, res) => {
+  
   try {
-    const savedData = await SavedCountry.findByPk(req.params.id, {
+    // const savedData = await SavedCountry.findByPk(req.params.id, {
+      
+      const savedData = await SavedCountry.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
       include: [
         {
-          model: SavedCountry,
+          model: User,
           attributes: ['name'],
         },
       ],
     });
+    console.log(savedData);
 
-    // fill tempdisplay.hbs with results, send to client
-res.render('saved', {data: results});
+    const countries= savedData.map((country) => country.get({plain: true}));
 
-    const countries = savedData.get({ plain: true });
+    console.log(countries);
 
-    res.render('countries', {
-      ...countries,
+    res.render('saved', {
+      countries,
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    res.status(500).json(err);
+    // Handle the error appropriately
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred while fetching saved data' });
   }
 });
+
+
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
