@@ -1,5 +1,7 @@
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
+  background-color: white;
 }
 
 .no-button {
@@ -17,8 +19,19 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+body {
+  background-color: #010e82;
+}
+
+main {
+  color: white;
+}
+
+#partition {
+  padding: 20px;
+  background-color: #000640;
+}
+
+.curved-button {
+  background-color: #e6e6e8;
 }
