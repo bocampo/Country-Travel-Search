@@ -4,7 +4,7 @@
 {{#if countries}}
   {{#each countries as |country|}}
     <h1>{{ country.name }}</h1>
-    <button data-id="{{country.id}}" type="button" id="delete" class="delete">Delete</button>
+    <button data-id="{{country.id}}" type="button" id="del" class="delete">Delete</button>
   {{/each}}
 {{else}}
 <p>No data available</p>
@@ -13,7 +13,10 @@
 <ul>
   {{#each savedData}}
   <li>{{ this.name }}</li>
-  <button type="button" class="delete">Delete</button>
+  {{!-- <button type="button" class="delete">Delete</button> --}}
   {{/each}}
 </ul>
 
+<h2 id="deleted"></h2>
+
+<script src="../public/js/saved.js"></script>
