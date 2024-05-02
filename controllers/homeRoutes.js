@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     const countries = savedData.map((countries) => countries.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('saved', {
+    res.render('home', {
       countries,
       logged_in: req.session.logged_in
     });
