@@ -28,7 +28,7 @@ SavedCountry.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'savedCountry',
+    modelName: 'SavedCountry',
   }
 );
 

@@ -13,6 +13,11 @@ const PORT = process.env.PORT || 3001;
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
+app.get('/public/js/login.js', function(req, res) {
+  res.type('text/javascript');
+  res.sendFile(__dirname + '/public/js/login.js');
+});
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {
