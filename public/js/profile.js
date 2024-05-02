@@ -51,6 +51,7 @@ search.addEventListener('click', function(){
     return response.json();
   })
   .then(data => {
+    
     console.log(data);
     const name = data[0].name.common;
     console.log(name);
@@ -84,6 +85,31 @@ search.addEventListener('click', function(){
     console.log(maps);
     const mapDiv = document.getElementById('maps');
     mapDiv.innerHTML = `Google Maps: ${mapKeys[0]}`;
+    
+  const visa = document.getElementById('visa');
+    if (name === 'China') {
+      visa.innerHTML = `Visa requirements: Visa Required`
+    } else if (name === 'Thailand') {
+      visa.innerHTML = `Visa requirements: Visa Required`
+    } else if (name === 'Italy') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'France') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Spain') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Germany') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Turkey') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Mexico') {
+      visa.innerHTML = `Visa requirements: Not required for less than 180 days`
+    } else if (name === 'United Kingdom') {
+      visa.innerHTML = `Visa requirements: Not required for less than 180 days`
+    } else if (name === 'Greece') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else {
+      visa.innerHTML = `Unable to find visa requirements`
+    };
 
     save.addEventListener('click', function() {
       console.log("You clicked me!");

@@ -22,12 +22,6 @@ const seedDatabase = async () => {
     });
   }
 
-  // const visas = await Visa.bulkCreate(visaData, {
-
-  //   individualHooks: true,
-  //   returning: true,
-  // });
-
   process.exit(0);
 };
 

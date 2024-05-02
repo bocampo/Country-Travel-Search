@@ -1,12 +1,27 @@
-{{#each SavedCountry as |SavedCountry| }}
+{{!-- {{!-- {{#each savedCountry as |savedCountry| }}
 <div class="row mb-4 SavedCountry">
   <div class="col-md-5">
     <h2>
-      <a href="/saved/{{SavedCountry.id}}">{{SavedCountry.name}}</a>
+      Saved countries:
+      </h2>
+
   </div>
 </div>
-{{/each}}
+{{/each}} --}}
 
+
+<h1>Saved Countries:</h1>
+<table>
+    <tbody>
+        {{#each data}}
+            <tr>
+                <td>{{this.name}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<script src="../public/js/saved.js"></script>
 
 
 <!--
