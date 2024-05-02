@@ -18,6 +18,11 @@ app.get('/public/js/login.js', function(req, res) {
   res.sendFile(__dirname + '/public/js/login.js');
 });
 
+app.get('/public/js/saved.js', function(req, res) {
+  res.set('Content-Type', 'application/javascript');
+  res.sendFile(__dirname + '/public/js/saved.js');
+});
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {
