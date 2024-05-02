@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { SavedCountry, User } = require('../models');
 const withAuth = require('../utils/auth');
+require('../public/js/saved.js')
 
 
 router.get('/', async (req, res) => {
@@ -38,6 +39,9 @@ router.get('/saved', async (req, res) => {
         },
       ],
     });
+
+    // fill tempdisplay.hbs with results, send to client
+res.render('saved', {data: results});
 
     const countries = savedData.get({ plain: true });
 

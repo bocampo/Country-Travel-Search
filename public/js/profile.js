@@ -51,6 +51,7 @@ search.addEventListener('click', function(){
     return response.json();
   })
   .then(data => {
+    
     console.log(data);
     const name = data[0].name.common;
     console.log(name);
@@ -71,7 +72,8 @@ search.addEventListener('click', function(){
     currDiv.innerHTML = `Currency used: ${currenciesKeys[0]}`;
     const languages = data[0].languages;
     const languageKeys = Object.keys(languages);
-    console.log(languages);
+    console.log(languageKeys);
+    console.log(`Main Language: ${languages[languageKeys[0]]}`);
     const langDiv = document.getElementById('languages');
     langDiv.innerHTML = `First language spoken: ${languageKeys[0]}`;
     const timezone = data[0].timezones[0];
@@ -83,9 +85,35 @@ search.addEventListener('click', function(){
     console.log(maps);
     const mapDiv = document.getElementById('maps');
     mapDiv.innerHTML = `Google Maps: ${mapKeys[0]}`;
+    
+  const visa = document.getElementById('visa');
+    if (name === 'China') {
+      visa.innerHTML = `Visa requirements: Visa Required`
+    } else if (name === 'Thailand') {
+      visa.innerHTML = `Visa requirements: Visa Required`
+    } else if (name === 'Italy') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'France') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Spain') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Germany') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Turkey') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else if (name === 'Mexico') {
+      visa.innerHTML = `Visa requirements: Not required for less than 180 days`
+    } else if (name === 'United Kingdom') {
+      visa.innerHTML = `Visa requirements: Not required for less than 180 days`
+    } else if (name === 'Greece') {
+      visa.innerHTML = `Visa requirements: Not required for less than 90 days`
+    } else {
+      visa.innerHTML = `Unable to find visa requirements`
+    };
 
     save.addEventListener('click', function() {
-      fetch(`/saved`, {
+      console.log("You clicked me!");
+      fetch(`/api/saved`, {
               method: 'POST',
               body: JSON.stringify({ name }),
               headers: {

@@ -11,7 +11,7 @@ SavedCountry.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    country_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: true,
     },
