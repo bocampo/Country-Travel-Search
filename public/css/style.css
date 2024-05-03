@@ -40,16 +40,4 @@ main {
   padding: 20px;
   margin: 10px;
   border-style: none;
-  font-size: 40px;
-}
-
-#searchInput {
-  padding: 10px;
-  margin: 10px;
-}
-
-#save {
-  padding: 10px;
-  margin: 10px;
-  border-style: none;
 }
