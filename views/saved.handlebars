@@ -1,9 +1,11 @@
+
+
 <h1>Saved Countries: </h1>
 
 
 {{#if countries}}
   {{#each countries as |country|}}
-    <h1>{{ country.name }}</h1>
+    <h1 class="card">{{ country.name }}</h1>
     <button data-id="{{country.id}}" type="button" id="delete" class="delete">Delete</button>
   {{/each}}
 {{else}}
